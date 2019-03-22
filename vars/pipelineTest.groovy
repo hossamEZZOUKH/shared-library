@@ -6,7 +6,7 @@ def call(body) {
         body()
 
 
-        def mvnHome = tools 'MAVEN'
+        def mvnHome = tool 'MAVEN'
         node {
             // Clean workspace before doing anything
             deleteDir()
@@ -31,14 +31,13 @@ def call(body) {
 
                         sh "echo 'shell scripts to run static tests...'"
                         sh "'${mvnHome/bin/mvn}' test"
-                    post{
-                      always {
-                            junit 'target/surefire-reports/*.xml'
-                      }
-                    }
                 }
                 stage ('Deploy') {
                     sh "echo 'deploying to server ${config.serverDomain}...'"
+                }
+
+                stage('results'){
+                    junit 'target/surefire-reports/*.xml'
                 }
             } catch (err) {
                 currentBuild.result = 'FAILED'
