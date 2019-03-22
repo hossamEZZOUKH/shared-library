@@ -5,6 +5,8 @@ def call(body) {
         body.delegate = config
         body()
 
+
+        def mvnHome
         node {
             // Clean workspace before doing anything
             deleteDir()
@@ -13,19 +15,33 @@ def call(body) {
                 stage ('Clone') {
                     checkout scm
                 }
+                stage('preparation'){
+
+
+                    mvnHome= tools 'MAVEN'
+                    steps {
+                        sh "'${mvnHome}/bin/mvn' archetype:generate -B " +
+                        '-DarchetypeGroupId=org.apache.maven.archetypes ' +
+                        '-DarchetypeArtifactId=maven-archetype-quickstart ' +
+                        "-DgroupId=com.company -DartifactId=${config.projectName}"
+                    }
+
+                }
                 stage ('Build') {
                     sh "echo 'building ${config.projectName} ...'"
+
+                    sh "'${mvnHome}/bin/mvn' -B -DskipTests clean package "
                 }
                 stage ('Tests') {
-                    parallel 'static': {
+                    steps{
                         sh "echo 'shell scripts to run static tests...'"
-                    },
-                            'unit': {
-                                sh "echo 'shell scripts to run unit tests...'"
-                            },
-                            'integration': {
-                                sh "echo 'shell scripts to run integration tests...'"
-                            }
+                        sh "'${mvnHome/bin/mvn}' test"
+                    }
+                    post{
+                      always {
+                            junit 'target/surefire-reports/*.xml'
+                      }
+                    }
                 }
                 stage ('Deploy') {
                     sh "echo 'deploying to server ${config.serverDomain}...'"
