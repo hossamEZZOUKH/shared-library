@@ -38,13 +38,14 @@ def call(body) {
                     sh "echo 'deploying to server ${config.serverDomain}...'"
                 }
 
-                stage('results'){
-                  junit '**/target/surefire-reports/TEST-*.xml'
-				  archive 'target/*.jar'
-                }
             } catch (err) {
                 currentBuild.result = 'FAILED'
                 throw err
+            }finally {
+              stage('results'){
+                  junit '**/target/surefire-reports/TEST-*.xml'
+				  archive 'target/*.jar'
+                }
             }
         }
     }
