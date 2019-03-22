@@ -7,8 +7,9 @@ def call(body) {
 
 
         def mvnHome
-        node {
+        pipeline {
             // Clean workspace before doing anything
+            agent any
             deleteDir()
 
             try {
