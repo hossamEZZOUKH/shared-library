@@ -16,10 +16,9 @@ def call(body) {
                     checkout scm
                 }
                 stage('preparation'){
-
-
-                    mvnHome= tools 'MAVEN'
                     steps {
+
+                        mvnHome= tools 'MAVEN'
                         sh "'${mvnHome}/bin/mvn' archetype:generate -B " +
                         '-DarchetypeGroupId=org.apache.maven.archetypes ' +
                         '-DarchetypeArtifactId=maven-archetype-quickstart ' +
