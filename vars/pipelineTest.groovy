@@ -1,6 +1,7 @@
 def call(body) {
 
         def config = [:]
+  		 def mvnHome
         body.resolveStrategy = Closure.DELEGATE_FIRST
         body.delegate = config
         body()
@@ -13,7 +14,7 @@ def call(body) {
             try {
                 stage ('Clone') {
                     checkout scm
-                    def mvnHome = tool 'MAVEN'
+                    mvnHome = tool 'MAVEN'
                 }
                 stage('preparation'){
                         sh "'${mvnHome}/bin/mvn' archetype:generate -B " +
