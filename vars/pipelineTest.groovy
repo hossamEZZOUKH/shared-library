@@ -39,7 +39,8 @@ def call(body) {
                 }
 
                 stage('results'){
-                    junit 'target/surefire-reports/*.xml'
+                  junit '**/target/surefire-reports/TEST-*.xml'
+				  archive 'target/*.jar'
                 }
             } catch (err) {
                 currentBuild.result = 'FAILED'
