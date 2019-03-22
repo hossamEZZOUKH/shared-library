@@ -17,10 +17,11 @@ def call(body) {
                     mvnHome = tool 'MAVEN'
                 }
                 stage('preparation'){
-                        sh "'${mvnHome}/bin/mvn' archetype:generate -B " +
+                       /* sh "'${mvnHome}/bin/mvn' archetype:generate -B " +
                         '-DarchetypeGroupId=org.apache.maven.archetypes ' +
                         '-DarchetypeArtifactId=maven-archetype-quickstart ' +
-                        "-DgroupId=com.company -DartifactId=${config.projectName}"
+                        "-DgroupId=com.company -DartifactId=${config.projectName}"*/
+                  sh "echo 'preparation of ${config.projectName} ... '"
 
                 }
                 stage ('Build') {
