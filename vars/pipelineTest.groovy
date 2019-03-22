@@ -6,10 +6,9 @@ def call(body) {
         body()
 
 
-        def mvnHome
-        pipeline {
+        def mvnHome = tools 'MAVEN'
+        node {
             // Clean workspace before doing anything
-            agent any
             deleteDir()
 
             try {
@@ -17,14 +16,10 @@ def call(body) {
                     checkout scm
                 }
                 stage('preparation'){
-                    steps {
-
-                        mvnHome= tools 'MAVEN'
                         sh "'${mvnHome}/bin/mvn' archetype:generate -B " +
                         '-DarchetypeGroupId=org.apache.maven.archetypes ' +
                         '-DarchetypeArtifactId=maven-archetype-quickstart ' +
                         "-DgroupId=com.company -DartifactId=${config.projectName}"
-                    }
 
                 }
                 stage ('Build') {
@@ -33,10 +28,9 @@ def call(body) {
                     sh "'${mvnHome}/bin/mvn' -B -DskipTests clean package "
                 }
                 stage ('Tests') {
-                    steps{
+
                         sh "echo 'shell scripts to run static tests...'"
                         sh "'${mvnHome/bin/mvn}' test"
-                    }
                     post{
                       always {
                             junit 'target/surefire-reports/*.xml'
