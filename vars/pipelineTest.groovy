@@ -29,7 +29,7 @@ def call(body) {
 
                     sh "'${mvnHome}/bin/mvn' -B -DskipTests clean package "
                 }
-                stage ('Tests') {
+                /*stage ('Tests') {
 
 				  sh "echo 'shell scripts to run static tests...'"
                   sh "'${mvnHome}/bin/mvn' test"
@@ -37,7 +37,7 @@ def call(body) {
                  	 junit 'target/surefire-reports/*.xml'
 				  	 archive 'target/*.jar'
                      }*/
-                }
+                }*/
                 stage ('Deploy') {
                     sh "echo 'deploying to server ${config.serverDomain}...'"
                 }
