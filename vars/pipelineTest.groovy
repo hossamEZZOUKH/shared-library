@@ -43,7 +43,7 @@ def call(body) {
                 throw err
             }finally {
               stage('results'){
-                  junit '**/target/surefire-reports/TEST-*.xml'
+                  junit '**/build/test-reports/*.xml'
 				  archive 'target/*.jar'
                 }
             }
