@@ -33,10 +33,10 @@ def call(body) {
 
 				  sh "echo 'shell scripts to run static tests...'"
                   sh "'${mvnHome}/bin/mvn' test"
-            		 stage('results'){
+            		/* stage('results'){
                  	 junit 'target/surefire-reports/*.xml'
 				  	 archive 'target/*.jar'
-                     }
+                     }*/
                 }
                 stage ('Deploy') {
                     sh "echo 'deploying to server ${config.serverDomain}...'"
