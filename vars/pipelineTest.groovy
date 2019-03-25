@@ -27,7 +27,7 @@ def call(body) {
                 stage ('Build') {
                     sh "echo 'building ${config.projectName} ...'"
 
-                    sh "'${mvnHome}/bin/mvn' -B -DskipTests clean package "
+                    sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore=true install"
                 }
                 /*stage ('Tests') {
 
