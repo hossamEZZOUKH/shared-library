@@ -31,8 +31,12 @@ def call(body) {
                 }
                 stage ('Tests') {
 
-                        sh "echo 'shell scripts to run static tests...'"
+				  sh "echo 'shell scripts to run static tests...'"
                   sh "'${mvnHome}/bin/mvn' test"
+            		 stage('results'){
+                 	 junit 'target/surefire-reports/*.xml'
+				  	 archive 'target/*.jar'
+                     }
                 }
                 stage ('Deploy') {
                     sh "echo 'deploying to server ${config.serverDomain}...'"
@@ -41,11 +45,6 @@ def call(body) {
             } catch (err) {
                 currentBuild.result = 'FAILED'
                 throw err
-            }finally {
-              stage('results'){
-                  junit 'target/surefire-reports/*.xml'
-				  archive 'target/*.jar'
-                }
             }
         }
     }
