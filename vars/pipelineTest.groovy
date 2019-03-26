@@ -36,7 +36,7 @@ def call(body) {
                   
                   }finally{
                     //junit "${pwd}/**/target/surefire-reports/*.xml"
-				  	 archive 'target/*.jar'
+				  	 archiveArtifacts  'target/*.jar'
                     echo 'test finished'
                   }
 				 
