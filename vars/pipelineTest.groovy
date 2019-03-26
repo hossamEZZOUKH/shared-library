@@ -30,15 +30,13 @@ def call(body) {
                     sh "'${mvnHome}/bin/mvn' -B -DskipTests clean package"
                 }
                 stage ('Tests') {
-                  steps{
+                  try{
                      sh "echo 'shell scripts to run static tests...'"
                      sh "'${mvnHome}/bin/mvn' test"
                   
-                  }post{
-                    always{
+                  }finally{
                       junit 'target/surefire-reports/*.xml'
 				  	  archive 'target/*.jar'
-                    }
                   }
 				 
                 }
