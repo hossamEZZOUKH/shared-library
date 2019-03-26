@@ -27,17 +27,21 @@ def call(body) {
                 stage ('Build') {
                     sh "echo 'building ${config.projectName} ...'"
 
-                    sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore=true install"
+                    sh "'${mvnHome}/bin/mvn' -B -DskipTests clean package"
                 }
-                /*stage ('Tests') {
-
-				  sh "echo 'shell scripts to run static tests...'"
-                  sh "'${mvnHome}/bin/mvn' test"
-            		 stage('results'){
-                 	 junit 'target/surefire-reports/*.xml'
-				  	 archive 'target/*.jar'
-                     }
-                }*/
+                stage ('Tests') {
+                  steps{
+                     sh "echo 'shell scripts to run static tests...'"
+                     sh "'${mvnHome}/bin/mvn' test"
+                  
+                  }post{
+                    always{
+                      junit 'target/surefire-reports/*.xml'
+				  	  archive 'target/*.jar'
+                    }
+                  }
+				 
+                }
                 stage ('Deploy') {
                     sh "echo 'deploying to server ${config.serverDomain}...'"
                 }
