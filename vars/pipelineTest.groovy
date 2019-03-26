@@ -35,7 +35,8 @@ def call(body) {
                      sh "'${mvnHome}/bin/mvn' -fn test"
                   
                   }finally{
-                     junit "target/surefire-reports/*.xml"
+                     //junit "target/surefire-reports/*.xml"
+                     step([$class: 'hudson.plugins.testng.Publisher', reportFilenamePattern: 'target/surefire-reports/*.xml'])
 				  	 archiveArtifacts  'target/*.jar'
                      echo 'test finished'
                   }
