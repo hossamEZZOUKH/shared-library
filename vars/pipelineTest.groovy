@@ -27,7 +27,7 @@ def call(body) {
                 stage ('Build') {
                     sh "echo 'building ${config.projectName} ...'"
 
-                    sh "'${mvnHome}/bin/mvn' -B clean package"
+                    sh "'${mvnHome}/bin/mvn' -B -DskipTests clean package"
                 }
                 stage ('Tests') {
                   try{
@@ -35,8 +35,8 @@ def call(body) {
                      sh "'${mvnHome}/bin/mvn' -fn test"
                   
                   }finally{
-                     //junit "target/surefire-reports/*.xml"
-                     step([$class: 'hudson.plugins.testng.Publisher', reportFilenamePattern: 'target/surefire-reports/*.xml'])
+                       junit "target/surefire-reports/*.xml"
+                     //step([$class: 'hudson.plugins.testng.Publisher', reportFilenamePattern: 'target/surefire-reports/*.xml'])
 				  	 archiveArtifacts  'target/*.jar'
                      echo 'test finished'
                   }
