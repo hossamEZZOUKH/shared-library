@@ -32,7 +32,7 @@ def call(body) {
                 stage ('Tests') {
                   try{
                      sh "echo 'shell scripts to run static tests...'"
-                     sh "'${mvnHome}/bin/mvn' test"
+                     sh "'${mvnHome}/bin/mvn' -fn test"
                   
                   }finally{
                      junit "${pwd}/**/target/surefire-reports/*.xml"
