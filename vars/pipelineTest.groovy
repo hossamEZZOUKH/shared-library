@@ -35,9 +35,9 @@ def call(body) {
                      sh "'${mvnHome}/bin/mvn' -fn test"
                   
                   }finally{
-                     junit "${pwd}/**/target/surefire-reports/*.xml"
+                     junit "target/surefire-reports/*.xml"
 				  	 archiveArtifacts  'target/*.jar'
-                    echo 'test finished'
+                     echo 'test finished'
                   }
 				 
                 }
