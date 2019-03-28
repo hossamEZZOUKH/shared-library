@@ -44,6 +44,11 @@ def call(body) {
                 }
                 stage ('Deploy') {
                     sh "echo 'deploying to server ${config.serverDomain}...'"
+                    def testImage = docker.build("jboss-image", "./Dockerfile") 
+
+                      testImage.inside {
+                          sh 'echo "EZZOUKH"'
+                      }
                 }
 
             } catch (err) {
