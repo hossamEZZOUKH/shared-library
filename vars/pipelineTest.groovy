@@ -48,8 +48,9 @@ def call(body) {
 
                       testImage.inside {
                           sh 'echo "EZZOUKH"'
+                        
+                        input message:"press 'proceed' to continue"
                       }
-                    input message:"press 'proceed' to continue"
                 }
 
             } catch (err) {
