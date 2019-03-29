@@ -52,7 +52,7 @@ def call(body) {
 
                     input message:"press 'proceed' to continue"
                 }*/
-                sh"'${constants.mvnHome}/bin/mvn' package wildfly:deploy -Dhostname=${constants.host_server_name} -Dport=${constants.port} -Dusername=${constants.userName} -Dpassword=${constants.password} -Dfilename=${artifactId}-${project.version}.jar"
+                sh"'${mvnHome}/bin/mvn' package wildfly:deploy -Dhostname=localhost -Dport=9990 -Dusername=hossam -Dpassword=hossam -Dfilename=${artifactId}-${project.version}.jar"
 
             }
 
