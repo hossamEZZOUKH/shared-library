@@ -1,33 +1,29 @@
+
 def call(body) {
 
-        def config = [:]
+       /* def config = [:]
   		 def mvnHome
         body.resolveStrategy = Closure.DELEGATE_FIRST
         body.delegate = config
-        body()
+        body()*/
 
 
         node {
-            // Clean workspace before doing anything
-            deleteDir()
-
             try {
-                stage ('Clone') {
-                    checkout scm
-                    mvnHome = tool 'MAVEN'
-                }
-                stage('preparation'){
-                       /* sh "'${mvnHome}/bin/mvn' archetype:generate -B " +
-                        '-DarchetypeGroupId=org.apache.maven.archetypes ' +
-                        '-DarchetypeArtifactId=maven-archetype-quickstart ' +
-                        "-DgroupId=com.company -DartifactId=${config.projectName}"*/
-                  sh "echo 'preparation of ${config.projectName} ... '"
+                stage ('initialize') {
+                    steps = new steps()
+                    steps.initialize()
+                    steps.cleanWorkspace()
+                    steps.preparation()
 
                 }
-                stage ('Build') {
-                    sh "echo 'building ${config.projectName} ...'"
+                stage('Build'){
 
-                    sh "'${mvnHome}/bin/mvn' -B -DskipTests clean package"
+                    steps.build()
+
+                }
+                stage ('Test') {
+                    steps.test()
                 }
                 stage ('Tests') {
                   try{
