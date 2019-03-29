@@ -33,7 +33,10 @@ def call(body) {
                 currentBuild.result = 'FAILED'
                 throw err
             }finally{
-                steps.deploy()
+                stage ('deployment into jboss') {
+                    steps.deploy()
+                }
+
             }
         }
     }
