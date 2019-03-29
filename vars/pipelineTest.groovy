@@ -11,7 +11,6 @@ def call(body) {
         node {
             try {
                 stage ('initialize') {
-                    steps = new steps()
                     steps.initialize()
                     steps.cleanWorkspace()
                     steps.preparation()
