@@ -44,14 +44,16 @@ def call(body) {
             }
             stage ('Deploy') {
                 sh "echo 'deploying to server ${config.serverDomain}...'"
-                def testImage = docker.build("jboss-image")
+                /*def testImage = docker.build("jboss-image")
 
                 testImage.inside {
                     sh 'echo "EZZOUKH"'
                     sh "java -jar target/*.jar"
 
                     input message:"press 'proceed' to continue"
-                }
+                }*/
+                sh"'${constants.mvnHome}/bin/mvn' package wildfly:deploy -Dhostname=${constants.host_server_name} -Dport=${constants.port} -Dusername=${constants.userName} -Dpassword=${constants.password} -Dfilename=${artifactId}-${project.version}.jar"
+
             }
 
         } catch (err) {
