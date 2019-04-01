@@ -52,8 +52,10 @@ def call(body) {
 
                     input message:"press 'proceed' to continue"
                 }*/
-                 sh"'${mvnHome}/bin/mvn' package wildfly:deploy -Dhostname=10.1.19.26 -Dport=9990 -Dusername=hossam -Dpassword=hossam -Dfilename=project_mvn_shared-1.0-SNAPSHOT.jar"
-                //sh"'${mvnHome}/bin/mvn' package wildfly:deploy"
+                 //sh"'${mvnHome}/bin/mvn' package wildfly:deploy -Dhostname=10.1.19.26 -Dport=9990 -Dusername=hossam -Dpassword=hossam -Dfilename=project_mvn_shared-1.0-SNAPSHOT.jar"
+                 sh"'${mvnHome}/bin/mvn' package wildfly:deploy"
+                 input message:"press 'proceed' to continue"
+                 sh "'${mvnHome}/bin/mvn' wildfly:undeploy"
 
             }
 
