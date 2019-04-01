@@ -3,26 +3,29 @@ package hz.source
 
 public class steps{
 
-    public  static void initialize() {
+    steps() {
+    }
+
+    def initialize() {
         echo 'Initializing PipelineSteps.'
         constants.mvnHome = tool 'MAVEN'
     }
 
-    public static void  cleanWorkspace() {
+    def cleanWorkspace() {
         sh "echo 'Cleaning workspace'"
         deleteDir()
     }
-    public static void  preparation(){
+    def preparation(){
         sh "echo 'preparation of ${constants.projectName} ... '"
         checkout scm
 
     }
 
-    public static void  build(){
+    def build(){
         sh "echo 'building ${constants.projectName} ...'"
         sh "'${constants.mvnHome}/bin/mvn' -B -DskipTests clean package"
     }
-    public static void  test(){
+    def test(){
         try{
             sh "echo 'shell scripts to run static tests...'"
             sh "'${constants.mvnHome}/bin/mvn' -fn test"
@@ -32,7 +35,7 @@ public class steps{
         }
 
     }
-    public static void  archiveTestResults() {
+    def archiveTestResults() {
         //with junit plugin
         //junit "target/surefire-reports/*.xml"
         step([$class: 'JUnitResultArchiver', testResults: '**/target/**/TEST*.xml', allowEmptyResults: true])
@@ -41,12 +44,12 @@ public class steps{
 
     }
 
-    public static void  archiveArtifact(){
+    def archiveArtifact(){
         sh "echo 'generate artifacts under /target/** ...'"
         archiveArtifacts  'target/*.jar'
 
     }
-    public static void  deploy(){
+    def deploy(){
         sh "echo 'deploy to a running jboss container ...'"
         sh"'${constants.mvnHome}/bin/mvn' package wildfly:deploy -Dhostname=${constants.host_server_name} -Dport=${constants.port} -Dusername=${constants.userName} -Dpassword=${constants.password} -Dfilename=${artifactId}-${project.version}.jar"
     }
