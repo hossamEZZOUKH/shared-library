@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-import static steps.*
+import static hz.source.steps.*
 
 def call(body) {
 
@@ -8,7 +8,7 @@ def call(body) {
         body.resolveStrategy = Closure.DELEGATE_FIRST
         body.delegate = config
         body()*/
-       // steps=new steps()
+       // hz.source.steps=new hz.source.steps()
 
 
         node {

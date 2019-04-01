@@ -1,4 +1,6 @@
-//#!/usr/bin/env groovy
+#!/usr/bin/env groovy
+package hz.source
+
 public class steps{
 
     public  static void initialize() {
