@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f28ab58-20ee-41ac-9c5d-d827136e45ce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/vars/test.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/vars/test.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/steps.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/steps.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vars/pipelineTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/vars/pipelineTest.groovy" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vars/test.groovy">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="544">
@@ -22,11 +23,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vars/pipelineTest.groovy">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+              <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -43,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/steps.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="47" column="4" selection-start-line="46" selection-start-column="8" selection-end-line="47" selection-end-column="4" />
+            <state relative-caret-position="17">
+              <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -55,6 +56,8 @@
     <findStrings>
       <find>deploy</find>
       <find>static void</find>
+      <find>def</find>
+      <find>public</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -65,9 +68,9 @@
       <list>
         <option value="$PROJECT_DIR$/var/pipelineTest.groovy" />
         <option value="$PROJECT_DIR$/src/constants.groovy" />
+        <option value="$PROJECT_DIR$/vars/test.groovy" />
         <option value="$PROJECT_DIR$/src/steps.groovy" />
         <option value="$PROJECT_DIR$/vars/pipelineTest.groovy" />
-        <option value="$PROJECT_DIR$/vars/test.groovy" />
       </list>
     </option>
   </component>
@@ -108,7 +111,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554108704692" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554111619122" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -170,10 +173,10 @@
     <entry file="file://$PROJECT_DIR$/shared_library.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/steps.groovy">
+    <entry file="file://$PROJECT_DIR$/vars/test.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="47" column="4" selection-start-line="46" selection-start-column="8" selection-end-line="47" selection-end-column="4" />
+        <state relative-caret-position="544">
+          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -184,17 +187,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vars/pipelineTest.groovy">
+    <entry file="file://$PROJECT_DIR$/src/steps.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        <state relative-caret-position="17">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vars/test.groovy">
+    <entry file="file://$PROJECT_DIR$/vars/pipelineTest.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
+        <state relative-caret-position="238">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
         </state>
       </provider>
     </entry>

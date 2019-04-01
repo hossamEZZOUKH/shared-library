@@ -1,24 +1,26 @@
+//#!/usr/bin/env groovy
+public class steps{
 
-    def initialize() {
+    public  static void initialize() {
         echo 'Initializing PipelineSteps.'
         constants.mvnHome = tool 'MAVEN'
     }
 
-    def cleanWorkspace() {
+    public static void  cleanWorkspace() {
         sh "echo 'Cleaning workspace'"
         deleteDir()
     }
-    def preparation(){
+    public static void  preparation(){
         sh "echo 'preparation of ${constants.projectName} ... '"
         checkout scm
 
     }
 
-    def build(){
+    public static void  build(){
         sh "echo 'building ${constants.projectName} ...'"
         sh "'${constants.mvnHome}/bin/mvn' -B -DskipTests clean package"
     }
-    def test(){
+    public static void  test(){
         try{
             sh "echo 'shell scripts to run static tests...'"
             sh "'${constants.mvnHome}/bin/mvn' -fn test"
@@ -28,7 +30,7 @@
         }
 
     }
-    def archiveTestResults() {
+    public static void  archiveTestResults() {
         //with junit plugin
         //junit "target/surefire-reports/*.xml"
         step([$class: 'JUnitResultArchiver', testResults: '**/target/**/TEST*.xml', allowEmptyResults: true])
@@ -37,12 +39,15 @@
 
     }
 
-    def archiveArtifact(){
+    public static void  archiveArtifact(){
         sh "echo 'generate artifacts under /target/** ...'"
         archiveArtifacts  'target/*.jar'
 
     }
-    def deploy(){
+    public static void  deploy(){
         sh "echo 'deploy to a running jboss container ...'"
         sh"'${constants.mvnHome}/bin/mvn' package wildfly:deploy -Dhostname=${constants.host_server_name} -Dport=${constants.port} -Dusername=${constants.userName} -Dpassword=${constants.password} -Dfilename=${artifactId}-${project.version}.jar"
     }
+
+}
+
