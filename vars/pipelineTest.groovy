@@ -11,7 +11,7 @@ def call(body) {
 
 
         node {
-            try {
+
                 stage ('initialize') {
                     steps.initialize()
                     steps.cleanWorkspace()
@@ -31,14 +31,11 @@ def call(body) {
                     steps.archiveArtifact()
                 }
 
-            } catch (err) {
-                currentBuild.result = 'FAILED'
-                throw err
-            }finally{
+
                 stage ('deployment into jboss') {
                     steps.deploy()
                 }
 
-            }
+
         }
     }
