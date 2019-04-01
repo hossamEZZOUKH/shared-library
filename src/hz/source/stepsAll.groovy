@@ -1,4 +1,5 @@
 package hz.source
+//import com.cloudbees.groovy.cps.NonCPS
 
  class stepsAll {
 
@@ -10,6 +11,7 @@ package hz.source
          stage("rrrrrrrrrrrrrrrrrrrr"){
              sh "echo 'Initializing PipelineSteps.'"
              constants.mvnHome = tool 'MAVEN'
+             
          }
      }
 
