@@ -7,7 +7,7 @@ def call(body) {
         body.resolveStrategy = Closure.DELEGATE_FIRST
         body.delegate = config
         body()*/
-        steps=new steps()
+       // steps=new steps()
 
 
         node {
