@@ -4,11 +4,11 @@ import hz.source.stepsAll
 
 def call(body) {
 
-       /* def config = [:]
+       def config = [:]
   		 def mvnHome
         body.resolveStrategy = Closure.DELEGATE_FIRST
         body.delegate = config
-        body()*/
+        body()
 
         def steps = new stepsAll()
 

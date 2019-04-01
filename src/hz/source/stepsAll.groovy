@@ -4,7 +4,7 @@ package hz.source
 
 def initialize() {
     echo 'Initializing PipelineSteps.'
-    constants.mvnHome = tool 'MAVEN'
+     def mvnHome = tool 'MAVEN'
 }
 
 def cleanWorkspace(script) {
@@ -12,19 +12,22 @@ def cleanWorkspace(script) {
     script.deleteDir()
 }
 def preparation(script){
-    script.sh "echo 'preparation of ${constants.projectName} ... '"
+    //script.sh "echo 'preparation of ${constants.projectName} ... '"
     script.checkout scm
 
 }
 
 def build(script){
-    script.sh "echo 'building ${constants.projectName} ...'"
-    script.sh "'${constants.mvnHome}/bin/mvn' -B -DskipTests clean package"
+    //script.sh "echo 'building ${constants.projectName} ...'"
+
+    def mvnHome = tool 'MAVEN'
+    script.sh "'${mvnHome}/bin/mvn' -B -DskipTests clean package"
 }
 def test(script){
     try{
         script.sh "echo 'shell scripts to run static tests...'"
-        script.sh "'${constants.mvnHome}/bin/mvn' -fn test"
+        def mvnHome = tool 'MAVEN'
+        script.sh "'${mvnHome}/bin/mvn' -fn test"
     }finally{
         script.sh "echo 'archive test results ...'"
         archiveTestResults()
@@ -47,6 +50,11 @@ def archiveArtifact(script){
 }
 def deploy(script){
     script.sh "echo 'deploy to a running jboss container ...'"
-    script.sh"'${constants.mvnHome}/bin/mvn' package wildfly:deploy -Dhostname=${constants.host_server_name} -Dport=${constants.port} -Dusername=${constants.userName} -Dpassword=${constants.password} -Dfilename=${artifactId}-${project.version}.jar"
+    def mvnHome = tool 'MAVEN'
+    String host_server_name="localhost";
+    String port="9990";
+    String userName="hossam";
+    String password="hossam";
+    script.sh"'${mvnHome}/bin/mvn' package wildfly:deploy -Dhostname=${host_server_name} -Dport=${port} -Dusername=${userName} -Dpassword=${password} -Dfilename=${artifactId}-${project.version}.jar"
 }
 
