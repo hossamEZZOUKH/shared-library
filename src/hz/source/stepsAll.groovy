@@ -8,7 +8,7 @@ def initialize() {
 }
 
 def cleanWorkspace(script) {
-    script.sh "echo 'Cleaning workspace'"
+    echo 'Cleaning workspace'
     script.deleteDir()
 }
 def preparation(script){
@@ -25,7 +25,7 @@ def build(script){
 }
 def test(script){
     try{
-        script.sh "echo 'shell scripts to run static tests...'"
+        //script.sh "echo 'shell scripts to run static tests...'"
         def mvnHome = tool 'MAVEN'
         script.sh "'${mvnHome}/bin/mvn' -fn test"
     }finally{
@@ -44,12 +44,12 @@ def archiveTestResults(script) {
 }
 
 def archiveArtifact(script){
-    script.sh "echo 'generate artifacts under /target/** ...'"
+   // script.sh "echo 'generate artifacts under /target/** ...'"
     script.archiveArtifacts  'target/*.jar'
 
 }
 def deploy(script){
-    script.sh "echo 'deploy to a running jboss container ...'"
+   // script.sh "echo 'deploy to a running jboss container ...'"
     def mvnHome = tool 'MAVEN'
     String host_server_name="localhost";
     String port="9990";
