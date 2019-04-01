@@ -2,14 +2,14 @@
 package hz.source
 
 
-def initialize(script) {
+def initialize() {
     echo 'Initializing PipelineSteps.'
     constants.mvnHome = tool 'MAVEN'
 }
 
-def cleanWorkspace() {
-    sh "echo 'Cleaning workspace'"
-    deleteDir()
+def cleanWorkspace(script) {
+    script.sh "echo 'Cleaning workspace'"
+    script.deleteDir()
 }
 def preparation(script){
     script.sh "echo 'preparation of ${constants.projectName} ... '"
