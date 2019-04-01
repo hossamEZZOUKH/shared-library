@@ -7,7 +7,7 @@ package hz.source
 
 
      def initialize() {
-         echo 'Initializing PipelineSteps.'
+         sh "echo 'Initializing PipelineSteps.'"
          constants.mvnHome = tool 'MAVEN'
      }
 
