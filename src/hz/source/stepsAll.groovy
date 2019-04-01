@@ -4,9 +4,7 @@ package hz.source
 
      stepsAll() {
      }
-
-     steps() {
-     }
+     
 
      def initialize() {
          echo 'Initializing PipelineSteps.'
