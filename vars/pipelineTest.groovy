@@ -1,8 +1,8 @@
-#!/usr/bin/env groovy
-import hz.source.steps
+//#!/usr/bin/env groovy
 
+import hz.source.stepsAll
 
-def call(body) {
+def call(/*body*/) {
 
        /* def config = [:]
   		 def mvnHome
@@ -10,32 +10,34 @@ def call(body) {
         body.delegate = config
         body()*/
 
+    def steps = new stepsAll()
 
         node {
 
                 stage ('initialize') {
-                    initialize();
-                    cleanWorkspace();
-                    preparation();
-                    
+                     //def steps = new stepsAll()
+                    steps.initialize()
+                    steps.cleanWorkspace();
+                    steps.preparation();
+
 
                 }
                 stage('Build'){
 
-                    build()
+                    steps.build()
 
                 }
                 stage ('Test') {
-                    test()
+                    steps.test()
                 }
 
                 stage ('archive artifacts') {
-                    archiveArtifact()
+                    steps.archiveArtifact()
                 }
 
 
                 stage ('deployment into jboss') {
-                    deploy()
+                    steps.deploy()
                 }
 
 
