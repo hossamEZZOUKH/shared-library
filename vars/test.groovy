@@ -38,7 +38,7 @@ def call(body) {
                     junit "target/surefire-reports/*.xml"
                     //step([$class: 'hudson.plugins.testng.Publisher', reportFilenamePattern: 'target/surefire-reports/*.xml'])
                     archiveArtifacts  'target/*.jar'
-                    echo 'test finished'
+                    echo    cc'test finished'
                 }
 
             }
