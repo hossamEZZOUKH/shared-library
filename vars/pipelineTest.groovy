@@ -2,7 +2,7 @@
 
 import hz.source.stepsAll
 
-def call(/*body*/) {
+def call(body) {
 
        /* def config = [:]
   		 def mvnHome
@@ -10,7 +10,7 @@ def call(/*body*/) {
         body.delegate = config
         body()*/
 
-    def steps = new stepsAll()
+        def steps = new stepsAll()
 
         node {
 
