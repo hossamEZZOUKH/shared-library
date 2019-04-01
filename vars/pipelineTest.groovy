@@ -1,4 +1,5 @@
 #!/usr/bin/env groovy
+import static steps.*
 
 def call(body) {
 
@@ -13,27 +14,27 @@ def call(body) {
         node {
 
                 stage ('initialize') {
-                    steps.initialize()
-                    steps.cleanWorkspace()
-                    steps.preparation()
+                    initialize();
+                    cleanWorkspace();
+                    preparation();
 
                 }
                 stage('Build'){
 
-                    steps.build()
+                    build()
 
                 }
                 stage ('Test') {
-                    steps.test()
+                    test()
                 }
 
                 stage ('archive artifacts') {
-                    steps.archiveArtifact()
+                    archiveArtifact()
                 }
 
 
                 stage ('deployment into jboss') {
-                    steps.deploy()
+                    deploy()
                 }
 
 
