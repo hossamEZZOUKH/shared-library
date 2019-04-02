@@ -9,7 +9,7 @@ def initialize() {
 
 def cleanWorkspace() {
     echo 'Cleaning workspace'
-    deleteDir(this)
+    deleteDir()
 }
 def preparation(){
     //script.sh "echo 'preparation of ${constants.projectName} ... '"
