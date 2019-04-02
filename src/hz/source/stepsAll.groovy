@@ -7,37 +7,37 @@ def initialize() {
      def mvnHome = tool 'MAVEN'
 }
 
-def cleanWorkspace(script) {
+def cleanWorkspace() {
     echo 'Cleaning workspace'
-    script.deleteDir()
+    deleteDir(this)
 }
-def preparation(script){
+def preparation(){
     //script.sh "echo 'preparation of ${constants.projectName} ... '"
-    script.checkout scm
+    checkout scm
 
 }
 
-def build(script){
+def build(){
     //script.sh "echo 'building ${constants.projectName} ...'"
 
     def mvnHome = tool 'MAVEN'
-    script.sh "'${mvnHome}/bin/mvn' -B -DskipTests clean package"
+    sh "'${mvnHome}/bin/mvn' -B -DskipTests clean package"
 }
-def test(script){
+def test(){
     try{
         //script.sh "echo 'shell scripts to run static tests...'"
         def mvnHome = tool 'MAVEN'
-        script.sh "'${mvnHome}/bin/mvn' -fn test"
+        sh "'${mvnHome}/bin/mvn' -fn test"
     }finally{
-        script.sh "echo 'archive test results ...'"
+        sh "echo 'archive test results ...'"
         archiveTestResults()
     }
 
 }
-def archiveTestResults(script) {
+def archiveTestResults() {
     //with junit plugin
     //junit "target/surefire-reports/*.xml"
-    script.step([$class: 'JUnitResultArchiver', testResults: '**/target/**/TEST*.xml', allowEmptyResults: true])
+    step([$class: 'JUnitResultArchiver', testResults: '**/target/**/TEST*.xml', allowEmptyResults: true])
     // with testNG plugin
     //step([$class: 'hudson.plugins.testng.Publisher', reportFilenamePattern: 'target/surefire-reports/*.xml'])
 
@@ -58,3 +58,4 @@ def deploy(script){
     script.sh"'${mvnHome}/bin/mvn' package wildfly:deploy -Dhostname=${host_server_name} -Dport=${port} -Dusername=${userName} -Dpassword=${password} -Dfilename=${artifactId}-${project.version}.jar"
 }
 
+return this
