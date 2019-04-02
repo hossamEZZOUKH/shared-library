@@ -32,7 +32,7 @@ def call(body) {
                 }
 
                 stage ('archive artifacts') {
-                    steps.archiveArtifact()
+                    steps.archiveArtifact(this)
                 }
 
 
