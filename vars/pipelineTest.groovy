@@ -37,7 +37,7 @@ def call(body) {
 
 
                 stage ('deployment into jboss') {
-                    steps.deploy()
+                    steps.deploy(this)
                 }
 
 
