@@ -51,11 +51,11 @@ def archiveArtifact(script){
 def deploy(script){
    // script.sh "echo 'deploy to a running jboss container ...'"
     def mvnHome = tool 'MAVEN'
-    String host_server_name="localhost";
+    String host_server_name="10.1.19.3";
     String port="9990";
     String userName="hossam";
     String password="hossam";
-    script.sh"'${mvnHome}/bin/mvn' package wildfly:deploy -Dhostname=${host_server_name} -Dport=${port} -Dusername=${userName} -Dpassword=${password} -Dfilename=${artifactId}-${project.version}.jar"
+    script.sh"'${mvnHome}/bin/mvn' package wildfly:deploy -Dhostname=${host_server_name} -Dport=${port} -Dusername=${userName} -Dpassword=${password} -Dfilename=${project.artifactId}-${project.version}.jar"
 }
 
 return this
