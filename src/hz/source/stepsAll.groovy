@@ -55,7 +55,7 @@ def deploy(script){
     String port="9990";
     String userName="hossam";
     String password="hossam";
-    script.sh"'${mvnHome}/bin/mvn' package wildfly:deploy -Dhostname=${host_server_name} -Dport=${port} -Dusername=${userName} -Dpassword=${password} -Dfilename=${project.artifactId}-${project.version}.jar"
+    script.sh"'${mvnHome}/bin/mvn' package wildfly:deploy -Dhostname=${host_server_name} -Dport=${port} -Dusername=${userName} -Dpassword=${password} -Dfilename=*.jar"
 }
 
 return this

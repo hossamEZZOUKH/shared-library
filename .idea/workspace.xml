@@ -16,8 +16,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vars/test.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="426">
+              <caret line="27" column="55" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -31,20 +31,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vars/pipelineTest.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+            <state relative-caret-position="579">
+              <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hz/source/stepsAll.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+            <state relative-caret-position="514">
+              <caret line="57" column="162" selection-start-line="57" selection-start-column="162" selection-end-line="57" selection-end-column="162" />
             </state>
           </provider>
         </entry>
@@ -97,8 +97,8 @@
         <option value="$PROJECT_DIR$/src/hz/source/constantsss.groovy" />
         <option value="$PROJECT_DIR$/src/hz/source/Constants.groovy" />
         <option value="$PROJECT_DIR$/src/hz/source/constants.groovy" />
-        <option value="$PROJECT_DIR$/vars/pipelineTest.groovy" />
         <option value="$PROJECT_DIR$/src/hz/source/stepsAll.groovy" />
+        <option value="$PROJECT_DIR$/vars/pipelineTest.groovy" />
       </list>
     </option>
   </component>
@@ -155,7 +155,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554214777459" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554215128668" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Documents/pfe/prjects/new_shared_lib/jenkins-shared-library-example" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -237,13 +237,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vars/test.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hz/source/constantsss.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -258,17 +251,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vars/pipelineTest.groovy">
+    <entry file="file://$PROJECT_DIR$/vars/test.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+        <state relative-caret-position="426">
+          <caret line="27" column="55" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hz/source/stepsAll.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+        <state relative-caret-position="514">
+          <caret line="57" column="162" selection-start-line="57" selection-start-column="162" selection-end-line="57" selection-end-column="162" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vars/pipelineTest.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
         </state>
       </provider>
     </entry>
